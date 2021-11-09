@@ -53,7 +53,7 @@ contract ProxyAdmin is Ownable {
    */
   function upgrade(AdminUpgradeabilityProxy proxy, address implementation) public onlyOwner {
     proxy.upgradeTo(implementation);
-  }
+  } 
 
   /**
    * @dev Upgrades a proxy to the newest implementation of a contract and forwards a function call to it.
