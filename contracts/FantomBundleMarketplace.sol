@@ -146,7 +146,7 @@ contract FantomBundleMarketplace is
         __Ownable_init();
         __ReentrancyGuard_init();
     }
-
+    
     /// @notice Method for get NFT bundle listing
     /// @param _owner Owner address
     /// @param _bundleID Bundle ID
@@ -419,7 +419,9 @@ contract FantomBundleMarketplace is
             _msgSender(),
             _bundleID,
             _payToken,
-            IFantomMarketplace(addressRegistry.marketplace()).getPrice(_payToken),
+            IFantomMarketplace(addressRegistry.marketplace()).getPrice(
+                _payToken
+            ),
             price
         );
         emit OfferCanceled(_msgSender(), _bundleID);
@@ -522,7 +524,9 @@ contract FantomBundleMarketplace is
             _creator,
             _bundleID,
             address(offer.payToken),
-            IFantomMarketplace(addressRegistry.marketplace()).getPrice(address(offer.payToken)),
+            IFantomMarketplace(addressRegistry.marketplace()).getPrice(
+                address(offer.payToken)
+            ),
             offer.price
         );
         emit OfferCanceled(_creator, _bundleID);
@@ -563,6 +567,7 @@ contract FantomBundleMarketplace is
      * @notice Validate and cancel listing
      * @dev Only marketplace can access
      */
+    // 
     function validateItemSold(
         address _nftAddress,
         uint256 _tokenId,

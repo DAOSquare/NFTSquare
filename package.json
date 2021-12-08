@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "npx hardhat compile",
-    "upgrade:marketplace": "npx hardhat run --network xdai scripts/upgrade_marketplace.js"
+    "upgrade:marketplace": "npx hardhat run --network xdai scripts/upgrade_marketplace.js",
+    "upgrade:bundle": "npx hardhat run --network xdai scripts/upgrade_bundle.js",
+    "upgrade:auction": "npx hardhat run --network xdai scripts/update_auction.js"
   },
   "keywords": [],
   "author": "",

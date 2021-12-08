@@ -436,7 +436,7 @@ contract FantomMarketplace is OwnableUpgradeable, ReentrancyGuardUpgradeable {
                 listedItem.quantity,
                 bytes("")
             );
-        }
+        } 
         IFantomBundleMarketplace(addressRegistry.bundleMarketplace())
             .validateItemSold(_nftAddress, _tokenId, listedItem.quantity);
 
