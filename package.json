@@ -23,8 +23,8 @@
     "@openzeppelin/contracts": "^3.4.0",
     "@openzeppelin/contracts-upgradeable": "^3.4.0",
     "@openzeppelin/hardhat-upgrades": "^1.9.0",
-    "chai": "^4.3.4",
     "ethereum-waffle": "^3.4.0",
+    "chai": "^4.3.4",
     "ethers": "^5.4.1",
     "hardhat": "^2.4.1"
   },

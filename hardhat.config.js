@@ -36,6 +36,9 @@ module.exports = {
       url: XDAI_ENDPOINT,
       chainId: 100,
       accounts: [`0x${PRIVATE_KEY}`],
+      // gas: 10250000,
+      gas:10000000000
+      // gas: 1000000000,
     },
     testnet: {
       url: `https://rpc.testnet.fantom.network`,

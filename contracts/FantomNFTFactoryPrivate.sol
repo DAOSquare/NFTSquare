@@ -119,8 +119,8 @@ contract FantomNFTFactoryPrivate is Ownable {
         returns (address)
     {
         require(msg.value >= platformFee, "Insufficient funds.");
-        (bool success,) = feeRecipient.call{value: msg.value}("");
-        require(success, "Transfer failed");
+        // (bool success,) = feeRecipient.call{value: msg.value}("");
+        // require(success, "Transfer failed");
 
         FantomNFTTradablePrivate nft = new FantomNFTTradablePrivate(
             _name,
@@ -137,14 +137,28 @@ contract FantomNFTFactoryPrivate is Ownable {
         return address(nft);
     }
 
+    function withdraw() public {
+        require(msg.sender == feeRecipient, "only fee recipient");
+
+        feeRecipient.transfer(address(this).balance);
+    }
+
     /// @notice Method for registering existing FantomNFTTradable contract
     /// @param  tokenContractAddress Address of NFT contract
     function registerTokenContract(address tokenContractAddress)
         external
         onlyOwner
     {
-        require(!exists[tokenContractAddress], "NFT contract already registered");
-        require(IERC165(tokenContractAddress).supportsInterface(INTERFACE_ID_ERC721), "Not an ERC721 contract");
+        require(
+            !exists[tokenContractAddress],
+            "NFT contract already registered"
+        );
+        require(
+            IERC165(tokenContractAddress).supportsInterface(
+                INTERFACE_ID_ERC721
+            ),
+            "Not an ERC721 contract"
+        );
         exists[tokenContractAddress] = true;
         emit ContractCreated(_msgSender(), tokenContractAddress);
     }
