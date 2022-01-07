@@ -1,13 +1,13 @@
 const {
   TREASURY_ADDRESS,
-  PLATFORM_FEE,
+  PLATFORM_FEE, 
   PROXY_ADDRESS_TESTNET,
   PROXY_ADDRESS_MAINNET
 } = require('./constants');
 
 async function main() {
   const Marketplace = await ethers.getContractFactory(
-    'FantomBundleMarketplace'
+    'FantomBundleMarketplace' 
   );
   const marketplaceImpl = await Marketplace.deploy();
   await marketplaceImpl.deployed();

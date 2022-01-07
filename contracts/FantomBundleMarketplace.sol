@@ -33,7 +33,7 @@ interface IFantomMarketplace {
 }
 
 interface IFantomTokenRegistry {
-    function enabled(address) external returns (bool);
+    function enabled(address) external returns (bool); 
 }
 
 contract FantomBundleMarketplace is
